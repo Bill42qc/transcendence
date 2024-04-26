@@ -1,0 +1,21 @@
+groups:
+  - name: testAlerts
+    rules:
+      - alert: DjangoDown
+        expr: up{job="django-prometheus"} < 1
+        for: 10m
+        labels:
+          severity: high
+
+      - alert: NginxDown
+        expr: up{job="nginx exporter"} < 1
+        for: 10m
+        labels:
+          severity: high
+
+# for testing 
+      - alert: DjangoUp
+        expr: up{job="django-prometheus"} == 1
+        for: 1m
+        labels:
+          severity: low

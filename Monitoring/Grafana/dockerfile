@@ -1,0 +1,20 @@
+FROM grafana/grafana-oss:10.3.1
+
+USER root
+
+    # SSL SETUP
+RUN apk --no-cache add openssl \
+    && openssl genrsa -out /etc/grafana/grafana.key 2048 \
+    && openssl req -new -key /etc/grafana/grafana.key -out /etc/grafana/grafana.csr -nodes -subj "/C=CA/ST=QC/L=Quebec/O=42Network/OU=42QC/CN=gmiyakaw.42.fr/UID=gmiyakaw" \
+    && openssl x509 -req -days 365 -in /etc/grafana/grafana.csr -signkey /etc/grafana/grafana.key -out /etc/grafana/grafana.crt \
+    && chmod 400 /etc/grafana/grafana.key /etc/grafana/grafana.crt
+
+# Import our custom dashboard and datasources
+COPY ./dashboards /etc/grafana/provisioning/dashboards
+COPY ./datasources /etc/grafana/provisioning/datasources
+
+ENV GF_SERVER_PROTOCOL=https
+ENV GF_SERVER_CERT_FILE=/etc/grafana/grafana.crt
+ENV GF_SERVER_CERT_KEY=/etc/grafana/grafana.key
+
+EXPOSE 3000

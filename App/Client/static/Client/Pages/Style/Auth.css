@@ -1,0 +1,325 @@
+#user-account-container {
+    max-width: 80%;
+    margin: 50px auto;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    text-align: center;
+}
+
+#user-account-container h1 {
+    font-size: 3.5rem;
+}
+
+.divider {
+    width: 100%;
+    height: 15px;
+    background-color: #4655962d;
+    margin: 20px 0;
+}
+
+.user-box-title {
+    font-size: 2rem;
+    font-weight: bolder;
+    margin-bottom: 20px;
+}
+
+
+#avatar {
+    width: 15rem;
+    border-radius: 50%;
+    margin-bottom: 20px;
+}
+
+.user-stats-levels {
+    display: flex;
+    direction: row;
+    justify-content: center;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+
+.user-stats {
+    display: flex;
+    direction: row;
+    justify-content: space-evenly;
+    margin-bottom: 20px;
+    margin-top: 20px;
+
+}
+
+.user-stat-box {
+    margin-bottom: 10px;
+    border: 3px solid #4548e921;
+}
+.user-stat-box:hover span{
+    cursor: pointer;
+    border: 3px solid #5633d4;
+    transition: 0.5s;
+}
+
+.user-stat-box h3 {
+    margin: 0;
+    font-weight: bold;
+    padding: 10px;
+    background-color: #4548e921;
+    color: #fff;
+}
+
+.user-stat-box p {
+    margin: 0;
+    padding: 10px;
+    background-color: #4548e921;
+    color: #fff;
+}
+
+.user-stat-box span {
+    color: #dadada;
+    font-size: 2rem;
+    font-weight: bolder;
+}
+
+.game-history-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    background-color: #081a3183;
+    color: #dadada;
+    padding: 20px;
+    margin-top: 20px;
+}
+
+.game-history-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #081a3183;
+    margin-top: 20px;
+}
+
+.game-history-box {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 80%;
+    padding: 20px;
+    margin: 10px 0;
+    /* background-color: #ff26f452; */
+    background-color: rgba(0, 0, 0, 0.205);
+    box-shadow: 0 0 10px #00000021;
+    border: 3px solid #e945db21;
+}
+.game-history-box:hover {
+    /* background-color: #ff26f498; */
+    background-color: rgba(0, 0, 0, 0.301);
+    transition: 0.3s ease-in-out;
+}
+
+.game-history-box h3 {
+    margin: 0;
+    font-weight: bold;
+    color: #fff;
+    text-shadow: 0 0 10px #000;
+}
+
+.game-history-box span {
+    margin: 0;
+    color: #fff;
+    text-shadow: 0 0 10px #000;
+}
+
+
+
+#user-setting-button {
+    background-color: #007bffb6;
+    color: #fff;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+#user-setting-button:hover {
+    background-color: #0056b3;
+}
+
+#delete-user-button {
+    background-color: #ff5555;
+    color: #fff;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+#delete-user-button:hover {
+    background-color: #cc0000;
+}
+
+.login-content-container {
+    width: 50%;
+    margin: 0 auto;
+	margin-top: 25vh;
+    padding: 50px;
+    border: 1px solid #8529ac93;
+    border-radius: 5px;
+    box-shadow: 0 0 10px #d21dff;
+}
+
+.login-content-container h2 {
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.login-content-container button {
+    font-size: 1.4rem;
+}
+
+#login-form {
+    display: flex;
+    flex-direction: column;
+}
+
+#login-form input {
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+#login-form button {
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    background-color: #ae5bed;
+    color: white;
+    cursor: pointer;
+}
+
+#login-form button:hover {
+    background-color: #9e52d7;
+}
+
+.login-content-container a {
+    color: #007BFF;
+    text-decoration: none;
+    display: block;
+    margin-top: 10px;
+}
+
+#register-form {
+    display: flex;
+    flex-direction: column;
+}
+
+#register-form input {
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+#register-form button {
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    background-color: #ae5bed;
+    color: white;
+    cursor: pointer;
+}
+
+#register-form button:hover {
+    background-color: #9e52d7;
+}
+
+#login-indicator {
+    width: 20px;
+    height: 20px;
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    border: 1px solid #000;
+    border-radius: 50%;
+}
+
+
+.friend-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.friend-list, .game-history-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    padding: 20px;
+    background-color: #081a3183;
+    box-shadow: 0 0 10px #00000021;
+    border: 3px solid #e945db21;
+}
+
+.friend-box {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 80%;
+    padding: 20px;
+    margin: 10px 0;
+    background-color: #ff26f452;
+    box-shadow: 0 0 10px #00000021;
+    border: 3px solid #e945db21;
+}
+
+.friend-box:hover {
+    background-color: #ff26f498;
+    transition: 0.3s ease-in-out;
+}
+
+.friend-box h3 {
+    margin: 0;
+    font-weight: bold;
+    color: #fff;
+    text-shadow: 0 0 10px #000;
+}
+
+.friend-box img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 20px;
+}
+
+
+.add-friend-button {
+    background-color: #007bffb6;
+    color: #fff;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+@media screen and (max-width: 768px) {
+    .user-stats {
+        flex-direction: column;
+    }
+    .login-content-container {
+        width: 95%;
+        margin-top: 5vh;
+    }
+    
+}
+
+.text-centering {
+    transform: translate(-100%);
+}

@@ -1,0 +1,101 @@
+version: '3'
+
+services:
+  db:
+    image: postgres:12.1-alpine
+    volumes:
+      - postgres_data:/var/lib/postgresql/data/
+    env_file:
+      - .env
+    ports:
+      - 5432:5432
+
+  web:
+    build:
+      context: .
+      dockerfile: ./dockerfile
+    volumes:
+      - ./App:/code
+      - static:/static
+    env_file:
+      - .env
+    ports:
+      - 8000:8000
+      - 8001:8001
+    depends_on:
+      - db
+    restart: on-failure
+
+  nginx:
+    build:
+      context: ./Nginx
+      dockerfile: dockerfile
+    volumes:
+      - static:/static
+    ports:
+      - 443:443
+    depends_on:
+      - web
+
+# source https://github.com/nginxinc/nginx-prometheus-exporter
+  nginx-prometheus-exporter:
+    image: nginx/nginx-prometheus-exporter:1.1
+    expose:
+      - 9113
+    env_file:
+      - .env
+    command:
+      - -nginx.scrape-uri=https://nginx:443/stub_status
+    restart: unless-stopped
+    depends_on:
+      - prometheus
+
+  grafana:
+    build: 
+      context: ./Monitoring/Grafana
+      dockerfile: dockerfile
+    container_name: grafana
+    ports:
+      - 3000:3000
+    volumes:
+      - grafana_data:/var/lib/grafana
+      - prometheus_data:/etc/prometheus_data
+    restart: unless-stopped
+    env_file:
+      - .env
+    depends_on:
+      - prometheus
+
+  prometheus:
+    build: 
+      context: ./Monitoring/Prometheus
+      dockerfile: dockerfile
+    container_name: prometheus
+    ports:
+      - 9090:9090
+    volumes:
+      - prometheus_data:/etc/prometheus_data
+    restart: unless-stopped
+    depends_on:
+      - nginx
+
+  alertmanager:
+    build: 
+      context: ./Monitoring/Alertmanager
+      dockerfile: dockerfile
+    depends_on:
+      - prometheus
+    env_file:
+      - .env
+    restart: unless-stopped
+    ports:
+      - 9093:9093
+    volumes:
+      - "./alertmanager-data:/data"
+
+volumes:
+  postgres_data:
+  static:
+  grafana_data:
+  prometheus_data:
+  alertmanager_data:

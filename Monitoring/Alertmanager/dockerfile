@@ -1,0 +1,28 @@
+FROM debian:buster
+
+USER root
+
+RUN apt-get update && \
+	apt-get install -y wget tar openssl && \
+	rm -rf /var/lib/apt/lists/*
+
+WORKDIR /usr/local/bin
+RUN wget https://github.com/prometheus/alertmanager/releases/download/v0.27.0/alertmanager-0.27.0.linux-amd64.tar.gz && \
+    tar xzf alertmanager-0.27.0.linux-amd64.tar.gz && \
+    mv alertmanager-0.27.0.linux-amd64 alertmanager && \
+    rm alertmanager-0.27.0.linux-amd64.tar.gz
+
+RUN mkdir -p /config/certs && cd /config/certs \ 
+	&& openssl req \
+	-x509 \
+	-newkey rsa:4096 \
+	-nodes \
+	-keyout alert.key \
+	-out alert.crt \
+	-nodes -subj "/C=CA/ST=QC/L=Quebec/O=42Network/OU=42QC/CN=alertmanager/UID=transcendence"
+
+COPY replace_variables.sh /config/replace_variables.sh
+COPY alertmanager.yml /config/alertmanager.yml
+COPY web-config.yml /config/web-config.yml
+
+ENTRYPOINT [ "/config/replace_variables.sh" ]

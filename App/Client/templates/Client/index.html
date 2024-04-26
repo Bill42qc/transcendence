@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transcendence | King of Pong</title>
+
+    {% load static %}
+    <link rel="icon" href="{% static 'Client/Assets/Favicon.ico' %}">
+    <link rel="stylesheet" href="{% static 'Client/App.css' %}">
+    <link rel="stylesheet" href="{% static 'Client/Componants/Style/Navbar.css' %}">
+    <link rel="stylesheet" href="{% static 'Client/Pages/Style/Home.css' %}">
+    <link rel="stylesheet" href="{% static 'Client/Pages/Style/About.css' %}">
+    <link rel="stylesheet" href="{% static 'Client/Pages/Style/Auth.css' %}">
+    <link rel="stylesheet" href="{% static 'Client/Pages/Style/UserSettings.css' %}">
+    <link rel="stylesheet" href="{% static 'Client/Componants/Animations/ballBounce.css' %}">
+    <link rel="stylesheet" href="{% static 'Client/Pages/Style/Pong.css' %}">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+
+
+</head>
+
+<body>
+    <div id="main">
+        <div id="dynamic-nav-links"></div>
+        <div id="content"></div>
+
+    </div>
+    <div class="area">
+        <ul class="shapes">
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+    </div>
+    <footer class="footer">
+        &copy; 2024 Transcendence
+    </footer>
+    {% load static %}
+    <script type="module" src="{% static 'Client/Componants/Pong.js' %}"></script>
+    <script src="{% static 'Client/Componants/Carousel.js' %}"></script>
+    <script type="module" src="{% static 'Client/Router.js' %}"></script>
+
+</body>
+
+</html>

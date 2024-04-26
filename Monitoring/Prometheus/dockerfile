@@ -1,0 +1,34 @@
+FROM debian:buster
+
+RUN apt-get update && \
+	apt-get install -y wget tar openssl && \
+	rm -rf /var/lib/apt/lists/*
+
+WORKDIR /usr/local/bin
+RUN wget https://github.com/prometheus/prometheus/releases/download/v2.50.1/prometheus-2.50.1.linux-amd64.tar.gz && \
+	tar xzf prometheus-2.50.1.linux-amd64.tar.gz && \
+	mv prometheus-2.50.1.linux-amd64 prometheus && \
+	rm prometheus-2.50.1.linux-amd64.tar.gz
+
+COPY prometheus.yml /usr/local/bin/prometheus/prometheus.yml
+COPY web-config.yml /usr/local/bin/prometheus/web-config.yml
+COPY rules.yml /usr/local/bin/prometheus/rules.yml
+
+RUN mkdir -p /usr/local/bin/prometheus/certs && cd /usr/local/bin/prometheus/certs \ 
+	&& openssl req \
+	-x509 \
+	-newkey rsa:4096 \
+	-nodes \
+	-keyout prometheus.key \
+	-out prometheus.crt \
+	-nodes -subj "/C=CA/ST=QC/L=Quebec/O=42Network/OU=42QC/CN=prometheus/UID=django-prometheus"
+
+RUN mkdir -p /etc/prometheus_data/ && \
+	cp /usr/local/bin/prometheus/certs/prometheus.key /etc/prometheus_data/prometheus.key \
+	&& cp /usr/local/bin/prometheus/certs/prometheus.crt /etc/prometheus_data/prometheus.crt
+
+EXPOSE 9090
+
+CMD ["/usr/local/bin/prometheus/prometheus", \
+	"--config.file=/usr/local/bin/prometheus/prometheus.yml", \
+	"--web.config.file=/usr/local/bin/prometheus/web-config.yml"]

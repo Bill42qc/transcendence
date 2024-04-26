@@ -1,0 +1,111 @@
+# ft_transcendence
+
+Questions to ask:
+
+- as per the PDF "it is allowed and even recommended to use anything
+possible to simplify certain actions. It is important to note that
+any tools or resources utilized must be justified. Please be aware
+that simplifying does not equate to completing your work."
+
+	Can we use my dockerfile to server the dgango server or do I need to add the 4-5 lines of code and create it from a debian or ubuntu kernel image? its basically the same thing but better practice since your just using a kernel to use python
+
+
+
+To run App locally:
+
+	Requirements:
+		Python
+
+	Steps:	
+		cd App
+		python3 manage.py runserver
+
+To run the App in Docker containers:
+
+	Requirements:
+		make
+		Docker
+		Docker-compose
+	
+	Steps:
+		make
+
+		visit http://localhost
+
+important note while developping:
+
+	- Remember to use hard refresh (Ctrl + F5 on Windows, Command + Shift + R on Mac) whenever you make changes to static files and those changes don't seem to be reflected in your browser.
+
+## Git
+
+### Branch Naming
+
+> Format  `scope/keyword/details`
+>
+
+#### Scopes:
+
+- `backend`
+- `frontend`
+- `config`
+
+#### Keywords:
+
+- `feature` is for adding, refactoring or removing a feature
+- `bugfix` is for fixing a bug
+- `hotfix` is for changing code with a temporary solution and/or without following the usual process (usually because of an emergency)
+- `test` is for experimenting outside of an issue/ticket
+- Examples
+	- `feature/backend/login`
+	- `bugfix/frontend/contact`
+	- `hotfix/backend/db_issue#2`
+
+### Commit message
+
+> Format `keyword: brief explanation`
+>
+- `feat` is for adding a new feature
+- `fix` is for fixing a bug
+- `refactor` is for changing code for performance or convenience purpose (e.g. readibility)
+- `chore` is for everything else (writing documentation, formatting, adding tests, cleaning useless code etc.)
+- **Examples**
+	- `git commit -m 'feat: add new button component' -m "add the stop directive to button component to prevent propagation""`
+	- `git commit -m 'fix: add the stop directive to button component to prevent propagation'`
+	- `git commit -m 'refactor: rewrite button component in TypeScript'`
+	- `git commit -m 'chore: write button documentation'`
+
+# Monitoring:
+## Accessing Grafana
+
+- open localhost:3000
+- login using credentials in .env
+
+- navigate to Dashboards and find our custom dashboard(temp name, accepting suggestions)
+
+- You can inspect any visualization for more precise info.
+
+### Adding a dashboard
+
+- click "add" + visualization
+
+- find the metric tab, use the Metric Explorer.
+
+- click run querries to update
+
+- on right side of the page: find the graphical representation that suits you best: timeseries / bar chart / histogram etc
+
+- you can manipulate the data as code by flipping from 'builder' to 'code' in the querry menu
+
+- click save dashboard and copy the json file.
+
+- replace the contents of Monitoring/Grafana/dashboards/dashboard.yml
+
+## Accessing Prometheus
+
+Go to http://localhost:9090
+
+From there you can:
+ 
+  - querry directly from Prometheus by clicking on the globe or typing on the bar
+  - check metrics entrypoints status and location
+

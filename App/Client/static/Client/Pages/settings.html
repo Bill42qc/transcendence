@@ -1,0 +1,29 @@
+<div id="user-settings-container">
+	<h2>Update user informations</h2>
+	<br/>
+	<form id="update-user-form" autocomplete="on">
+		<input type="text" id="username1" name="username" placeholder="Username">
+		<button class="setting-button" type="submit">Change Username</button>
+	</form>
+	<div id="update-user-error" style="color: red; margin-top: 15px;"></div><br/><br/>
+	<form id="update-avatar-form" autocomplete="on">
+		<input type="file" id="" name="avatar" accept="image/*">
+		<button class="setting-button" type="submit">Change Avatar</button>
+	</form>
+	<div id="avatar-error" style="color: red; margin-top: 15px;"></div>
+	<div id="OTP-container">
+		<button class="setting-button" style="transform: translate(-5%);" id="enable-OTP">Enable OTP</button>
+	</div>
+	<div id="OTP-error" style="color: red; margin-top: 15px; margin-bottom: 15px;"></div>
+	<div>
+		<img id="qr-code" src="" alt="QR Code" style="display: none;">
+	</div>
+	<div id="disable-OTP-container">
+		<button class="setting-button" style="transform: translate(-5%);" id="disable-OTP">Disable OTP</button>
+	</div>
+	<div id="disable-OTP-error" style="color: red; margin-top: 15px; margin-bottom: 15px;"></div>
+	<br/>
+	<div>
+		<a id="delete-user-button">Delete Account</a>
+	</div>
+</div>

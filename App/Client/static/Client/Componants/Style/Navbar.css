@@ -1,0 +1,35 @@
+.navbar {
+    display: flex;
+    align-items: center;
+    /* background-color: #33333326; */
+    overflow: hidden;
+}
+
+.navbar a {
+    display: flex;
+    align-items: center;
+    height: 50px; /* Set a specific height */
+    color: #f2f2f2;
+    text-align: center;
+    font-weight: bold;
+    padding: 0 16px;
+    text-decoration: none;
+    transition: background-color 0.5s ease;
+}
+
+.navbar h1 {
+    margin: 0;
+    padding: 5px 16px;
+}
+
+.navbar a:hover {
+    background-color: #00103d72;
+    color: #dadada;
+}
+
+@media screen and (max-width: 600px) {
+    .navbar {
+        flex-direction: column;
+    }
+    
+}

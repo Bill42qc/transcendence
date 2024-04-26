@@ -1,0 +1,34 @@
+apiVersion: 1
+
+datasources:
+  - name: prometheus
+    type: prometheus
+    access: proxy
+        # Access mode - proxy (server in the UI) or direct (browser in the UI).
+    url: https://prometheus:9090
+        #  in order to link, this uid must be the same as the uid in dashboard.json
+    uid: "c1089a30-fc60-41e1-84aa-2ef597c7664a"
+        # <bool> Enables basic authorization.
+    # basicAuth: true
+        # <string> Sets the basic authorization username.
+    #basicAuthUser: ${GRAF_USER}
+    jsonData:
+      cacheLevel: 'medium'
+            # <bool>	Controls whether a client verifies the server’s certificate chain and host name.
+      tlsSkipVerify: true
+            # <bool> Enables TLS authentication using a client
+            # certificate configured in secureJsonData.
+      # tlsAuth: true
+            # <bool> Enables TLS authentication using a CA
+            # certificate.
+      # tlsAuthWithCACert: true
+            # <string> Defines the CA cert, client cert, and
+            # client key for encrypted authentication.
+    # secureJsonData:
+    #   # tlsCACert: '...'
+    #   tlsClientCert: '...'
+    #   tlsClientKey: '...'
+          # <string> Sets the database password, if necessary.
+      # password:
+          # <string> Sets the basic authorization password.
+      # basicAuthPassword:

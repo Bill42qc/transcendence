@@ -1,0 +1,28 @@
+
+global:
+  scrape_interval: 15s
+  evaluation_interval: 15s
+
+rule_files:
+  - rules.yml
+
+# https://github.com/korfuri/django-prometheus 
+
+scrape_configs:
+  - job_name: "django-prometheus"
+    scrape_interval: 10s
+    static_configs:
+      - targets: ['web:8000']
+
+  - job_name: 'nginx exporter'
+    scrape_interval: 10s
+    static_configs:
+      - targets: ['nginx-prometheus-exporter:9113']
+
+alerting:
+  alertmanagers:
+    - scheme: https
+      static_configs:
+        - targets: [ 'alertmanager:9093' ]
+      tls_config:
+        insecure_skip_verify: true

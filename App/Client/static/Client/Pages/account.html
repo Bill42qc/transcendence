@@ -1,0 +1,70 @@
+<div id="user-account-container">
+    
+    <h1 id="username">Welcome, User!</h1>
+    <img id="avatar" src="" alt="User Avatar">
+    
+    <div class="user-stats-levels">
+        <div>
+            <a id="user-setting-button" href="/settings"><i class="fa-solid fa-gears"></i></a>
+        </div>
+    </div>
+    
+    <div class="divider"></div>
+    <div class="reveal-text user-box-title">STATS</div>
+    
+    <div class="user-stats">
+        <div class="user-stat-box">
+            <h3>Games Played: </h3>
+            <span id="games-played"></span>
+        </div>
+        <div class="user-stat-box">
+            
+            <h3>Games Won: </h3>
+            <span id="games-won"></span>
+        </div>
+        <div class="user-stat-box">
+            
+            <h3>Games Lost: </h3>
+            <span id="games-lost"></span>
+        </div>
+        <div class="user-stat-box">
+            
+            <h3>Win rate: </h3>
+            <span id="win-rate"></span>
+        </div>
+    </div>
+
+    <div class="divider"></div>
+    <div class="reveal-text user-box-title">FRIENDS</div>
+
+    <div class="friends-container">
+
+        <form id="add-friend-form">
+            <input type="text" id="add-friend-form" name="add-friend" placeholder="Add Friend">
+            <button class="add-friend-button" type="submit"><i class="fa-solid fa-plus"></i></button>
+			<div id="add-friends-error" style="color: red; margin-top: 15px;"></div>
+        </form>
+
+        <p id="status"></p>
+        
+        <form id="update-online-status">
+            <button class="add-friend-button" type="submit">Change Status</button>
+        </form>
+        <br>
+		<div class="friend-list" id="friend-list-container"></div>
+
+            <div class="divider"></div>
+            <div class="reveal-text user-box-title">GAME HISTORY</div>
+        	<div class="game-history-header">
+				<h3>Opponent</h3>
+				<span class="text-centering">Date</span>
+				<span class="text-centering">Rate</span>
+			</div>
+		<div class="game-history-container" id="game-history-container"></div>
+
+    </div> 
+    
+    <div class="user-stats">
+        
+    </div>
+</div>
