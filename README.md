@@ -3,6 +3,9 @@ Transcendence
 Transcendence est un projet complet conçu pour fournir une infrastructure tout-en-un pour héberger une application web avec divers services intégrés. Ce projet utilise Docker Compose pour orchestrer les services nécessaires, y compris Nginx, PostgreSQL, Django avec Daphne pour le serveur ASGI, Grafana, et l'ELK stack pour la surveillance et la gestion des logs.
 Fonctionnalités
 
+*******
+Pour voir le site déja compilé : https://42transcendence.kippylab.dev/
+
     Backend Django avec Daphne : Fournit une API RESTful pour gérer les utilisateurs et les historiques de matchs de pong.
     Nginx : Serveur web pour servir l'application web et gérer le trafic HTTP.
     PostgreSQL : Base de données relationnelle pour stocker les données.
@@ -24,7 +27,7 @@ Installation
 
 bash
 
-git clone https://github.com/votre-nom-utilisateur/transcendence.git
+git clone https://github.com/Bill42qc/transcendence.git
 
     Accédez au répertoire du projet :
 
@@ -54,9 +57,5 @@ Jeu de Pong
     Accédez à http://localhost/pong pour jouer au jeu de pong en ligne.
     Rejoignez les tournois locaux et défiez l'IA progressive.
 
-Contribution
 
-Les contributions sont les bienvenues ! Pour des modifications majeures, veuillez ouvrir une issue pour discuter des changements proposés.
-Licence
 
-Ce projet est sous licence MIT. Voir le fichier LICENSE pour plus de détails.
